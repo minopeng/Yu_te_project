@@ -7,23 +7,21 @@
 
 ********* SUB CIRCUIT *********
 .SUBCKT two_stage_amp VI+ VI- VOUT VDD VSS VBias 
-.param wid1=2.6u len1=3u
-.param wid3=3.3u len3=0.4u
-.param wid5=3.876u len5=3u
-
-.param wid6=1.58u len6=0.2u
-.param wid7=5.472u len7=3u
-
-.param widB=0.7u lenB=1u
+.param wid1=4u len1=2u
+.param wid3=4u len3=0.4u
+.param wid5=3u len5=3u
+.param wid6=1.89u len6=0.2u
+.param wid7=4.56u len7=1.5u
+.param widB=0.8u lenB=3u
 
 .param CC = 0.2p 
 .param CL = 1p
 
-M1 N1 VI- N3 VSS n_18 W=wid1 L=len1 m=2
-M2 n2 VI+ N3 VSS n_18 W=wid1 L=len1 m=2
+M1 N1 VI- N3 VSS n_18 W=wid1 L=len1 m=1
+M2 n2 VI+ N3 VSS n_18 W=wid1 L=len1 m=1
 
-M3 N1 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=2
-M4 n2 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=2
+M3 N1 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=1
+M4 n2 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=1
 
 M5 N3 Vbias VSS VSS  n_18 W=wid5 L=len5 m=3
 
@@ -38,7 +36,7 @@ CL VOUT VSS CL
 ********* Supply & Bias *********
 V1 VDD 0 VDD
 V2 VSS 0 VSS
-I1 VDD VBias 1u
+I1 VDD VBias 0.8u
 
 ********* INSTANCE LIB *********
 .protect
