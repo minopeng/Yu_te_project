@@ -7,27 +7,27 @@
 
 ********* SUB CIRCUIT *********
 .SUBCKT two_stage_amp VI+ VI- VOUT VDD VSS VBias 
-.param wid1=4u len1=2u
-.param wid3=4u len3=0.4u
+.param wid1=4u len1=3.4u
+.param wid3=2.2u len3=0.44u
 .param wid5=3u len5=3u
-.param wid6=1.89u len6=0.2u
-.param wid7=4.56u len7=1.5u
-.param widB=0.8u lenB=3u
+.param wid6=2.1u len6=0.2u
+.param wid7=4.6u len7=0.85u
+.param widB=0.5u lenB=1u
 
 .param CC = 0.2p 
 .param CL = 1p
 
-M1 N1 VI- N3 VSS n_18 W=wid1 L=len1 m=1
-M2 n2 VI+ N3 VSS n_18 W=wid1 L=len1 m=1
+M1 N1 VI- N3 VSS n_18 W=wid1 L=len1 m=4
+M2 n2 VI+ N3 VSS n_18 W=wid1 L=len1 m=4
 
-M3 N1 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=1
-M4 n2 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=1
+M3 N1 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=2
+M4 n2 N1 Vdd Vdd  p_18 W=wid3 L=len3 m=2
 
-M5 N3 Vbias VSS VSS  n_18 W=wid5 L=len5 m=3
+M5 N3 Vbias VSS VSS  n_18 W=wid5 L=len5 m=4
 
 Mbias Vbias Vbias VSS VSS n_18 W=widB L=lenB m=1
 
-M6 VOUT N2 Vdd Vdd  p_18 W=wid6 L=len6 m=20
+M6 VOUT N2 Vdd Vdd  p_18 W=wid6 L=len6 m=11
 M7 VOUT Vbias VSS VSS  n_18 W=wid7 L=len7 m=10
     
 Cc VOUT N2  CC
@@ -36,7 +36,7 @@ CL VOUT VSS CL
 ********* Supply & Bias *********
 V1 VDD 0 VDD
 V2 VSS 0 VSS
-I1 VDD VBias 0.8u
+I1 VDD VBias 0.5u
 
 ********* INSTANCE LIB *********
 .protect
@@ -62,15 +62,15 @@ X1 VI+ VI- VOUT VDD VSS VBias two_stage_amp
 *.op
 
 *AC_analysis*
-VDM VID VSS 0 ac 1 
-VCM VCMI VSS VICM
-EIN+ VI+ VCMI VID VSS 0.5
-EIN- VI- VCMI VID VSS -0.5
-.ac DEC 1000 1 1e9 
-.probe vdb(VOUT) vp(VOUT)
-.meas ac Unit_Gain_Bandwidth when vdb(VOUT)=0
-.meas ac phase_margine FIND=par'180+vp(VOUT)' when vdb(VOUT)=0
-.meas ac DC_gain MAX vdb(VOUT)
+*VDM VID VSS 0 ac 1 
+*VCM VCMI VSS VICM
+*EIN+ VI+ VCMI VID VSS 0.5
+*EIN- VI- VCMI VID VSS -0.5
+*.ac DEC 1000 1 1e9 
+*.probe vdb(VOUT) vp(VOUT)
+*.meas ac Unit_Gain_Bandwidth when vdb(VOUT)=0
+*.meas ac phase_margine FIND=par'180+vp(VOUT)' when vdb(VOUT)=0
+*.meas ac DC_gain MAX vdb(VOUT)
 *.pz v(vout) VDM
 
 
@@ -106,13 +106,13 @@ EIN- VI- VCMI VID VSS -0.5
 
 *Output_Swing_analysis*
 ** remember to open VDD after PSRR analysis
-*Output_Swing_analysis*
-*.param offset = 0
-*VDM VID VSS offset 
-*VCM VCMI VSS VICM
-*EIN+ VI+ VCMI VID VSS 0.5
-*EIN- VI- VCMI VID VSS -0.5
-*.dc offset -1m 1m 0.001m
+Output_Swing_analysis*
+VDM VID VSS offset 
+.param offset = 0
+VCM VCMI VSS VICM
+EIN+ VI+ VCMI VID VSS 0.5
+EIN- VI- VCMI VID VSS -0.5
+.dc offset -1m 1m 0.001m
 
 
 .end
