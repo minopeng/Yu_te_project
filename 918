@@ -7,16 +7,16 @@
   this software is strictly prohibited.
   Input File: inv.sp                                                            
   Command line options: /cad/synopsys/hspice/2020.12/hspice/linux64/hspice -i inv.sp -o inv.lis
-  Start time: Thu Sep 18 20:23:16 2025
+  Start time: Thu Sep 18 21:14:34 2025
  lic:  
  lic: FLEXlm: SDK_12.9 
  lic: USER:   u112511037           HOSTNAME: wimlserver1 
- lic: HOSTID: "9c8e9962ad68"       PID:      7906 
+ lic: HOSTID: "9c8e9962ad68"       PID:      17765 
  lic: Using FLEXlm license file: 
  lic: 26585@lshc 
  lic: Checkout 1 hspice 
  lic: License/Maintenance for hspice will expire on 14-jun-2027/2025.06 
- lic: 577(in_use)/1235(total) FLOATING license(s) on SERVER 26585@lshc 
+ lic: 583(in_use)/1235(total) FLOATING license(s) on SERVER 26585@lshc 
  lic:   
   **info**  the obsolete option acout is ignored
   **warning** (inv.sp:55) runlvl smaller than 5, reset to 5 when accurate turned on
@@ -52,10 +52,10 @@
  ****** operating point status is all       simulation time is     0.     
     node    =voltage      node    =voltage      node    =voltage
 
- +0:vbias   = 462.6916m 0:vcmi    = 900.0000m 0:vdd     =   1.8000 
+ +0:vbias   = 473.4607m 0:vcmi    = 900.0000m 0:vdd     =   1.8000 
  +0:vi+     = 900.0000m 0:vi-     = 900.0000m 0:vid     =   0.     
- +0:vout    =   1.6083  0:vss     =   0.      1:n1      =   1.1751 
- +1:n2      =   1.1751  1:n3      = 363.6112m
+ +0:vout    = 570.9922m 0:vss     =   0.      1:n1      =   1.1750 
+ +1:n2      =   1.1750  1:n3      = 353.3422m
 
 
  **** voltage sources
@@ -63,10 +63,10 @@
  subckt                                              
  element  0:v1       0:v2       0:vcm      0:vdm     
   volts      1.8000     0.       900.0000m    0.     
-  current  -57.2403u   57.2403u    0.         0.     
-  power    103.0325u    0.         0.         0.     
+  current  -69.1536u   69.1536u    0.         0.     
+  power    124.4765u    0.         0.         0.     
 
-     total voltage source power dissipation=  103.0325u       watts
+     total voltage source power dissipation=  124.4765u       watts
 
 
 
@@ -74,12 +74,12 @@
 
  subckt             
  element  0:i1      
-  volts      1.3373 
-  current  500.0000n
-  power   -668.6542n
+  volts      1.3265 
+  current  600.0000n
+  power   -795.9236n
 
 
-     total current source power dissipation=-668.6542n       watts
+     total current source power dissipation=-795.9236n       watts
 
  **** voltage-controlled voltage sources
 
@@ -100,26 +100,26 @@
  element  1:m1       1:m2       1:m3       1:m4       1:m5       1:mbias   
  model    0:n_18.1   0:n_18.1   0:p_18.1   0:p_18.1   0:n_18.1   0:n_18.1  
  region   Saturation Saturation Saturation Saturation Saturation Saturation
-  id         3.8538u    3.8538u   -3.8538u   -3.8538u    7.7076u  499.9991n
-  ibs     -229.1559a -229.1559a  9.328e-22  9.328e-22 -2.077e-21 -3.126e-22
-  ibd     -740.5392a -740.5392a  399.9843a  399.9843a -455.0141a  -69.5478a
-  vgs      536.3888m  536.3888m -624.9479m -624.9479m  462.6916m  462.6916m
-  vds      811.4409m  811.4409m -624.9479m -624.9479m  363.6112m  462.6916m
-  vbs     -363.6112m -363.6112m    0.         0.         0.         0.     
-  vth      410.3226m  410.3226m -513.6309m -513.6309m  339.4902m  406.4328m
-  vdsat    133.0680m  133.0680m -139.0082m -139.0082m  125.6751m   92.1686m
-  vod      126.0662m  126.0662m -111.3170m -111.3170m  123.2013m   56.2588m
-  beta     436.0213u  436.0213u  459.9249u  459.9249u  959.7569u  150.3905u
-  gam eff  516.7648m  516.7648m  557.0846m  557.0846m  507.4460m  507.4460m
-  gm        47.8902u   47.8902u   48.3807u   48.3807u   97.4524u    8.5801u
-  gds      401.9310n  401.9310n  241.9303n  241.9303n  802.3306n   99.5634n
-  gmb        7.9800u    7.9800u   14.2124u   14.2124u   19.6046u    1.7486u
-  cdtot      5.5975f    5.5975f    7.0668f    7.0668f   14.6719f  813.6262a
-  cgtot     85.3194f   85.3194f   28.0739f   28.0739f  192.0060f    3.1849f
-  cstot     87.9121f   87.9121f   34.0834f   34.0834f  201.3435f    3.6558f
-  cbtot     27.5002f   27.5002f   19.6445f   19.6445f   71.1784f    2.1523f
-  cgs       77.1565f   77.1565f   23.6742f   23.6742f  172.4202f    2.6743f
-  cgd        1.3625f    1.3625f    1.9789f    1.9789f    3.4806f  179.4575a
+  id         4.6593u    4.6593u   -4.6593u   -4.6593u    9.3187u  599.9991n
+  ibs     -308.0305a -308.0305a  1.045e-21  1.045e-21 -2.479e-21 -3.752e-22
+  ibd       -1.0243f   -1.0243f  438.0452a  438.0452a -460.8801a  -71.1665a
+  vgs      546.6578m  546.6578m -624.9768m -624.9768m  473.4607m  473.4607m
+  vds      821.6810m  821.6810m -624.9768m -624.9768m  353.3422m  473.4607m
+  vbs     -353.3422m -353.3422m    0.         0.         0.         0.     
+  vth      402.8506m  402.8506m -511.5939m -511.5939m  339.2379m  406.3508m
+  vdsat    144.4286m  144.4286m -139.5412m -139.5412m  133.1003m   98.5614m
+  vod      143.8073m  143.8073m -113.3829m -113.3829m  134.2228m   67.1099m
+  beta     432.3509u  432.3509u  546.1650u  546.1650u    1.0141m  150.4460u
+  gam eff  516.5219m  516.5219m  557.0846m  557.0846m  507.4460m  507.4460m
+  gm        53.2625u   53.2625u   58.0769u   58.0769u  111.6491u    9.7884u
+  gds      398.0887n  398.0887n  293.9746n  293.9746n  968.9819n  114.2954n
+  gmb        8.8711u    8.8711u   17.0803u   17.0803u   22.3855u    1.9885u
+  cdtot      7.4866f    7.4866f    8.2191f    8.2191f   15.6959f  812.0005a
+  cgtot    150.7534f  150.7534f   33.2679f   33.2679f  203.3143f    3.2624f
+  cstot    154.5262f  154.5262f   40.2002f   40.2002f  213.2559f    3.7601f
+  cbtot     45.3312f   45.3312f   22.9069f   22.9069f   75.0588f    2.1504f
+  cgs      136.9845f  136.9845f   28.1104f   28.1104f  182.7991f    2.7698f
+  cgd        1.7327f    1.7327f    2.3388f    2.3388f    3.7513f  178.9582a
 
 
 
@@ -127,26 +127,26 @@
  element  1:m6       1:m7      
  model    0:p_18.1   0:n_18.1  
  region   Saturation Saturation
-  id       -49.0327u   49.0327u
-  ibs      8.699e-21 -1.345e-20
-  ibd      408.7572a   -6.3615f
-  vgs     -624.9479m  462.6916m
-  vds     -191.7068m    1.6083 
+  id       -59.2349u   59.2349u
+  ibs      1.063e-20 -1.555e-20
+  ibd        2.5457f   -2.5946f
+  vgs     -624.9768m  473.4607m
+  vds       -1.2290   570.9922m
   vbs        0.         0.     
-  vth     -542.7067m  387.3175m
-  vdsat   -134.6755m  102.7431m
-  vod      -82.2413m   75.3741m
-  beta       8.1277m   10.2833m
+  vth     -542.9168m  394.7634m
+  vdsat   -134.7486m  104.8222m
+  vod      -82.0600m   78.6972m
+  beta       7.7850m   12.3538m
   gam eff  557.0846m  507.4460m
-  gm       671.2952u  759.9517u
-  gds       32.5195u    8.0984u
-  gmb      196.6905u  151.1935u
-  cdtot     33.9906f   36.1094f
-  cgtot     50.8518f  180.2380f
-  cstot     69.3558f  203.4072f
-  cbtot     62.6468f  104.3405f
-  cgs       37.9533f  152.8485f
-  cgd        9.1882f   10.7073f
+  gm       814.4203u  913.0216u
+  gds        8.4133u   10.8106u
+  gmb      239.6660u  185.6549u
+  cdtot     26.4564f   49.9180f
+  cgtot     48.5243f  217.3026f
+  cstot     66.8074f  245.6436f
+  cbtot     54.5071f  131.3094f
+  cgs       36.2680f  185.4589f
+  cgd        8.6074f   12.8744f
 
 
 
@@ -154,9 +154,9 @@
  * two stage op 2023 yu-te liao project student *
 
  ****** ac analysis tnom=  25.000 temp=  27.000 ******
- unit_gain_bandwidth=  29.8959x
- phase_margine=  59.4926 
- dc_gain=  61.7711     at=   1.0000 
+ unit_gain_bandwidth=  34.4421x
+ phase_margine=  58.3778 
+ dc_gain=  70.2434     at=   1.0000 
              from=   1.0000     to=1000.0000x
 
           ***** job concluded
@@ -197,19 +197,19 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1          13
-  ac analysis        0.15        9001        9001
-  readin             0.02
-  errchk             0.01
+  ac analysis        0.09        9001        9001
+  readin             0.07
+  errchk             0.00
   setup              0.00
   output             0.00
 
 
-           peak memory used        470.56 megabytes
-           total cpu time            0.18 seconds
-           total elapsed time        1.01 seconds
-           job started at     20:23:16 09/18/2025
-           job ended   at     20:23:17 09/18/2025
-           job total runtime         1.01 seconds
+           peak memory used        470.57 megabytes
+           total cpu time            0.17 seconds
+           total elapsed time        0.99 seconds
+           job started at     21:14:34 09/18/2025
+           job ended   at     21:14:35 09/18/2025
+           job total runtime         0.99 seconds
 
 
  lic: Release hspice token(s) 
